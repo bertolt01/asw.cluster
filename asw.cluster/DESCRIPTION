@@ -1,0 +1,12 @@
+Package: asw.cluster
+Type: Package
+Title: Calculation of Diversity Faultlines
+Version: 2.10.1
+Date: 2022-05-29
+Author: Andreas Glenz and Bertolt Meyer, University of Zurich, Zurich, Switzerland
+Maintainer: Andreas Glenz <a.glenz@psychologie.uzh.ch>
+Description: Determining the group's Faultline from various methods, including the detection of the maximal average silhouette width (ASW) by using agglomerative and partitioning clustering algorithms.
+Depends: flexmix, nnet, nFactors, psych, parallel
+License: GPL
+LazyLoad: yes
+Built: R 4.1.1; ; 2022-05-30 06:30:54 UTC; unix

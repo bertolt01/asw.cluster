@@ -1,0 +1,26 @@
+citHeader("To cite package 'asw.cluster' in publications use:")
+
+year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date, perl = TRUE)
+vers <- paste("R package version", meta$Version)
+
+citEntry(entry="Manual",
+         title = "asw.cluster: Diversity Faultline Measures",
+         author = personList(as.person("Bertolt Meyer"),
+                             as.person("Andreas Glenz")),
+         year = year,
+         note = vers,
+         textVersion =
+         paste("Bertolt Meyer and Andreas Glenz (",
+               year,
+               "). asw.cluster: Diversity Faultline Measures. ",
+               vers, ".", sep=""))
+
+citEntry(entry="Article",
+         title = "Team faultline measures: {A} computational comparison and a new approach to multiple subgroups",
+         author = as.person("Bertolt Meyer [aut], Andreas Glenz [aut]"),
+         year = "2013",
+         journal = "Organizational Research Methods",
+         pages = "Advance online publication",
+         doi = "10.1177/1094428113484970",
+         textVersion = paste("Bertolt Meyer and Andreas Glenz (2013). Team faultline measures: A computational comparison and a new approach to multiple subgroups. Organizational Research Methods. Advance online publication. doi:10.1177/1094428113484970"))
+

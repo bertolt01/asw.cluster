@@ -1,0 +1,10 @@
+S3method(print, aswclust)
+S3method(summary, aswclust)
+S3method(print, summary.aswclust)
+S3method(faultlines, default)
+
+
+export("faultlines")
+
+
+importFrom(parallel,mclapply)
