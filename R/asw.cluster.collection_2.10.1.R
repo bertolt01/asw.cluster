@@ -3659,7 +3659,7 @@ faultlines.default <- function(data,group.par="NA",attr.type=NA,attr.weight=NA,r
       
 
    options(warn=-1)         
-   if (is.na(attr.type))
+   if (all(is.na(attr.type)))
    {
       
           attr.type <- rep("numeric",ncol(data))
@@ -3676,7 +3676,7 @@ faultlines.default <- function(data,group.par="NA",attr.type=NA,attr.weight=NA,r
    }  
     	
       	
-   if (is.na(attr.weight))
+   if (all(is.na(attr.weight)))
    {
       attr.weight <- rep(1,ncol(data))
    }
@@ -3872,7 +3872,7 @@ faultlines.default <- function(data,group.par="NA",attr.type=NA,attr.weight=NA,r
 v2t <- function(x)
 {
 
-	if (!is.na(x))
+	if (all(!is.na(x)))
 	{
 		x.text <- ""
 	    for (i in 1:length(x))
