@@ -100,6 +100,9 @@
 #
 # Version 2.10.1:
 # Eliminate dependency on package "QuantPsyc"
+#
+# Version 2.10.2:
+# Minor bug fix in code
 ##############################################
 
 

@@ -10,8 +10,8 @@ Package for calculating diversity faultline measures as suggested by Thatcher, J
 \tabular{ll}{
 Package: \tab asw.cluster\cr
 Type: \tab Package\cr
-Version: \tab 2.10.1\cr
-Date: \tab 2022-05-29\cr
+Version: \tab 2.10.2\cr
+Date: \tab 2023-02-23\cr
 License: \tab For Non-commercial Use Only\cr
 }
   The \code{\link{faultlines}} function is the main function of the package and is intended for calculating the faultlines; most other functions in the package are workhorse and sub functions that are called by \code{faultlines()}.
