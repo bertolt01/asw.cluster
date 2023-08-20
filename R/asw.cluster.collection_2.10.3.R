@@ -3041,7 +3041,7 @@ asw_cluster.agglomerative <- function(data,i.level = FALSE,maxgroups=6,metric='e
             # caclulate cluster centroids
             for (group in unique(groups)) 
             {
-         	       centroids[group,] <- colMeans(data[groups == group,])
+         	       centroids[group,] <- colMeans(data[groups == group, , drop = FALSE])
          	   }
          
             # calculate cluster sizes
@@ -3419,7 +3419,7 @@ faultlines <- function(data,group.par="NA",attr.type=NA,attr.weight=NA,rescale=N
  
 faultlines.calc <- function(group, group.vect , data, method=method, maxgroups=maxgroups, metric=metric, attr.weight.team=attr.weight.team, attr.type = attr.type, dummycols.team=dummycols.team, dummylist, quiet=TRUE,i.level=i.level,usesghomo=FALSE,by.attr=FALSE,cores=1) 
 {
-        data.team <- data[group.vect == group,]
+        data.team <- data[group.vect == group, , drop = FALSE]
         data.team.X <<- data.team
         cat ("Group:",group,"  Groupsize:",nrow(data.team),"\n")
       
@@ -3429,7 +3429,7 @@ faultlines.calc <- function(group, group.vect , data, method=method, maxgroups=m
           if (length(zerovarcols) > 0)
           {
                  dummycols.team <- dummycols.team[-(which(dummycols.team %in% zerovarcols))]
-                 data.team <- data.team[,-zerovarcols]
+                 data.team <- data.team[,-zerovarcols, drop = FALSE]
                  attr.weight.team <- attr.weight.team[-zerovarcols]
                  for (col in sort(zerovarcols, decreasing=TRUE)) dummycols.team[dummycols.team > col] <- dummycols.team[dummycols.team > col] - 1
           }
@@ -3445,7 +3445,7 @@ faultlines.calc <- function(group, group.vect , data, method=method, maxgroups=m
        	   if (length(dummycols.none) > 0)
        	   {
        	      nodummycols <- !(1:ncol(data.team) %in% dummycols.team)[-cols.none]
-       	      data.team <- data.team[,-dummycols.none]
+       	      data.team <- data.team[,-dummycols.none, drop = FALSE]
        	      for (dcol in rev(dummycols.none))
        	      {
        	        dummycols.team[which(dummycols.team==dcol)] <- 0
@@ -3481,7 +3481,7 @@ faultlines.calc <- function(group, group.vect , data, method=method, maxgroups=m
        dummylist.X <<- dummylist
 
        #cat(dummycols,"\n")
-       if (ncol(data.team) > 1)
+       if (ncol(data.team) >= 1)
        {
           fl.mbr <- NA
           fl.adjm <- NA
@@ -3629,7 +3629,7 @@ faultlines.default <- function(data,group.par="NA",attr.type=NA,attr.weight=NA,r
       groups <- sort(unique(group.vect))
       
       # group association has been saved in group.vect, so we can delete the group.par column
-      data <- data[,-which(names(data) == group.par)] 
+      data <- data[,-which(names(data) == group.par), drop = FALSE] 
    } else
    {
       group.vect <- rep(1,nrow(data))
